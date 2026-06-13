@@ -1,4 +1,5 @@
  import React from 'react'
+ import "../style/HowItWorks.css"
  
  const HowItWorks = () => {
 

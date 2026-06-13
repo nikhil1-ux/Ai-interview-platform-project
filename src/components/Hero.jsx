@@ -1,9 +1,10 @@
 import React from 'react'
+import "../style/Hero.css"
 
 const Hero = () => {
   return (
     <section className = "hero">
-      <div clasName="hero-content">
+      <div className="hero-content">
         <h1>AI-Powered Interview Platform</h1>
              <p>
           Practice interviews with AI, get instant feedback, improve your skills,
