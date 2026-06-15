@@ -19,7 +19,7 @@
 
         {steps.map((step,index)=>(
 
-          <div clasName="Step-card" key={index}>
+          <div className="Step-card" key={index}>
             <span>{index+1}</span>
             <h3 >{step}</h3>
           </div>

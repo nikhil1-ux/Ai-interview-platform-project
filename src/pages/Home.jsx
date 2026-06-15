@@ -6,6 +6,7 @@ import Features from "../components/Features.jsx"
 import Faq from "../components/Faq.jsx"
 import Footer from "../components/Footer.jsx"
 
+
 export const Home = () => {
   return (
     <>
