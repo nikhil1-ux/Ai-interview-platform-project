@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "../style/Signup.css";
 
 const Signup = () => {
   const {
@@ -17,23 +18,24 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
+      <h2>Create Account</h2>
 
       {/* Name */}
       <input
+        className="input-field"
         placeholder="Full Name"
         {...register("name", {
           required: "Name is required",
         })}
       />
       {errors.name && (
-        <p style={{ color: "red" }}>
-          {errors.name.message}
-        </p>
+        <p className="error">{errors.name.message}</p>
       )}
 
       {/* Email */}
       <input
+        className="input-field"
         type="email"
         placeholder="Email"
         {...register("email", {
@@ -41,13 +43,12 @@ const Signup = () => {
         })}
       />
       {errors.email && (
-        <p style={{ color: "red" }}>
-          {errors.email.message}
-        </p>
+        <p className="error">{errors.email.message}</p>
       )}
 
       {/* Password */}
       <input
+        className="input-field"
         type="password"
         placeholder="Password"
         {...register("password", {
@@ -59,13 +60,12 @@ const Signup = () => {
         })}
       />
       {errors.password && (
-        <p style={{ color: "red" }}>
-          {errors.password.message}
-        </p>
+        <p className="error">{errors.password.message}</p>
       )}
 
       {/* Confirm Password */}
       <input
+        className="input-field"
         type="password"
         placeholder="Confirm Password"
         {...register("confirmPassword", {
@@ -75,13 +75,12 @@ const Signup = () => {
         })}
       />
       {errors.confirmPassword && (
-        <p style={{ color: "red" }}>
-          {errors.confirmPassword.message}
-        </p>
+        <p className="error">{errors.confirmPassword.message}</p>
       )}
 
       {/* Role */}
       <select
+        className="input-field"
         {...register("role", {
           required: "Role is required",
         })}
@@ -92,99 +91,120 @@ const Signup = () => {
       </select>
 
       {errors.role && (
-        <p style={{ color: "red" }}>
-          {errors.role.message}
-        </p>
+        <p className="error">{errors.role.message}</p>
       )}
 
       {/* Student Fields */}
       {role === "student" && (
-        <>
-          <input
-            placeholder="College Name"
-            {...register("collegeName", {
-              required: "College Name is required",
-            })}
-          />
-          {errors.collegeName && (
-            <p style={{ color: "red" }}>
-              {errors.collegeName.message}
-            </p>
-          )}
+        <div className="form-grid">
+          <div>
+            <input
+              className="input-field"
+              placeholder="College Name"
+              {...register("collegeName", {
+                required: "College Name is required",
+              })}
+            />
+            {errors.collegeName && (
+              <p className="error">
+                {errors.collegeName.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            placeholder="Branch"
-            {...register("branch", {
-              required: "Branch is required",
-            })}
-          />
-          {errors.branch && (
-            <p style={{ color: "red" }}>
-              {errors.branch.message}
-            </p>
-          )}
+          <div>
+            <input
+              className="input-field"
+              placeholder="Branch"
+              {...register("branch", {
+                required: "Branch is required",
+              })}
+            />
+            {errors.branch && (
+              <p className="error">
+                {errors.branch.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            placeholder="Year"
-            {...register("year", {
-              required: "Year is required",
-            })}
-          />
-          {errors.year && (
-            <p style={{ color: "red" }}>
-              {errors.year.message}
-            </p>
-          )}
+          <div>
+            <input
+              className="input-field"
+              placeholder="Year"
+              {...register("year", {
+                required: "Year is required",
+              })}
+            />
+            {errors.year && (
+              <p className="error">
+                {errors.year.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            placeholder="Skills"
-            {...register("skills", {
-              required: "Skills are required",
-            })}
-          />
-          {errors.skills && (
-            <p style={{ color: "red" }}>
-              {errors.skills.message}
-            </p>
-          )}
-        </>
+          <div>
+            <input
+              className="input-field"
+              placeholder="Skills"
+              {...register("skills", {
+                required: "Skills are required",
+              })}
+            />
+            {errors.skills && (
+              <p className="error">
+                {errors.skills.message}
+              </p>
+            )}
+          </div>
+        </div>
       )}
 
       {/* Recruiter Fields */}
       {role === "recruiter" && (
-        <>
-          <input
-            placeholder="Company Name"
-            {...register("companyName", {
-              required: "Company Name is required",
-            })}
-          />
-          {errors.companyName && (
-            <p style={{ color: "red" }}>
-              {errors.companyName.message}
-            </p>
-          )}
+        <div className="form-grid">
+          <div>
+            <input
+              className="input-field"
+              placeholder="Company Name"
+              {...register("companyName", {
+                required: "Company Name is required",
+              })}
+            />
+            {errors.companyName && (
+              <p className="error">
+                {errors.companyName.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            placeholder="Designation"
-            {...register("designation", {
-              required: "Designation is required",
-            })}
-          />
-          {errors.designation && (
-            <p style={{ color: "red" }}>
-              {errors.designation.message}
-            </p>
-          )}
+          <div>
+            <input
+              className="input-field"
+              placeholder="Designation"
+              {...register("designation", {
+                required: "Designation is required",
+              })}
+            />
+            {errors.designation && (
+              <p className="error">
+                {errors.designation.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            placeholder="Company Website"
-            {...register("companyWebsite")}
-          />
-        </>
+          <div style={{ gridColumn: "1 / 3" }}>
+            <input
+              className="input-field"
+              placeholder="Company Website"
+              {...register("companyWebsite")}
+            />
+          </div>
+        </div>
       )}
 
-      <button type="submit">Signup</button>
+      <button className="signup-btn" type="submit">
+        Signup
+      </button>
     </form>
   );
 };

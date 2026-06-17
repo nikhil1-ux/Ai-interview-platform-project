@@ -1,4 +1,6 @@
 import React from 'react'
+import "../style/Login.css"
+import { useNavigate } from 'react-router-dom';
 
 import { useForm } from "react-hook-form";
 
@@ -11,61 +13,70 @@ const Login = () => {
   formState: { errors }
 } = useForm()
 
+
+
 const onSubmit = (data)=>{
 
-  console.log(data)
-}
+  localStorage.setItem("token","demo-token");
+  localStorage.setItem("role",data.role)
+  
+   if (data.role === "student") {
+      navigate("/student-dashboard");
+    } else {
+      navigate("/recruiter-dashboard");
+    }
+
+};
 
 
   return (
-   <form onSubmit={handleSubmit(onSubmit)}>
-    
-    <select {...register("role",{    required: "Role is required"})}>
-           <option value="">Select Role</option>
-      <option value="student">Student</option>
-       <option value="recruiter">Recruiter</option>
+  <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+  <h2>Login</h2>
 
-     
-    </select>
+  <select
+    className="input-field"
+    {...register("role", {
+      required: "Role is required",
+    })}
+  >
+    <option value="">Select Role</option>
+    <option value="student">Student</option>
+    <option value="recruiter">Recruiter</option>
+  </select>
 
-      {errors.role && (
-     <p style={{ color: "red" }}>
-      {errors.role.message}
-</p>
-    )}
+  {errors.role && (
+    <p className="error">{errors.role.message}</p>
+  )}
 
-  
-   <input
-   {...register("email",{
-    required:"email is required"
-   })}
-   placeholder='Email'
-   />
+  <input
+    className="input-field"
+    {...register("email", {
+      required: "Email is required",
+    })}
+    placeholder="Email"
+  />
 
-   {errors.email && (
-    <p style={{color:"red"}}>
-    {errors.email.message}
-    </p>
-   )}
-   <input
-        {...register("password",{
-          required:"password is required"
-        })}
-        placeholder="Password"
-      />
-      {
-        errors.password && (
-          <p style={{color:"red"}}>
-            {errors.password.message}
-          </p>
-        )
-      }
+  {errors.email && (
+    <p className="error">{errors.email.message}</p>
+  )}
 
-      <button type="submit">Login</button>
-   
+  <input
+    className="input-field"
+    type="password"
+    {...register("password", {
+      required: "Password is required",
+    })}
+    placeholder="Password"
+  />
 
+  {errors.password && (
+    <p className="error">{errors.password.message}</p>
+  )}
 
-   </form>
+  <button className="login-btn" type="submit">
+    Login
+  </button>
+</form>
   )
 }
 
