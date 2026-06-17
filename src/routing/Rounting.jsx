@@ -5,6 +5,7 @@ import Login from "../pages/Login.jsx"
 import Signup from "../pages/Signup.jsx"
 import ProtectedRoute from "./ProtectedRoute.jsx"
 import StudentDashboard from "../pages/StudentDashboard.jsx"
+import RecruiterDashboard from "../pages/RecruiterDashboard.jsx"
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,15 @@ const router = createBrowserRouter([
 
     )
 
+  },
+  {
+       path: "/recruiter-dashboard",
+    element: (
+   <ProtectedRoute>
+              <RecruiterDashboard />
+            </ProtectedRoute>
+
+    )
   }
 ]);
 export default router;

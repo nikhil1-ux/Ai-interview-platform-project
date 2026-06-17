@@ -13,7 +13,7 @@ const Login = () => {
   formState: { errors }
 } = useForm()
 
-
+const navigate = useNavigate();
 
 const onSubmit = (data)=>{
 

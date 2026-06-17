@@ -2,7 +2,7 @@ import {Home} from "./pages/Home.jsx"
 import './App.css'
 
 import { RouterProvider } from "react-router-dom"
-import router from "./pages/Rounting.jsx"
+import router from "./routing/Rounting.jsx"
 
 
 
