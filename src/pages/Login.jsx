@@ -36,13 +36,30 @@ const onSubmit = (data)=>{
 
   
    <input
-   {...register("email")}
+   {...register("email",{
+    required:"email is required"
+   })}
    placeholder='Email'
    />
+
+   {errors.email && (
+    <p style={{color:"red"}}>
+    {errors.email.message}
+    </p>
+   )}
    <input
-        {...register("password")}
+        {...register("password",{
+          required:"password is required"
+        })}
         placeholder="Password"
       />
+      {
+        errors.password && (
+          <p style={{color:"red"}}>
+            {errors.password.message}
+          </p>
+        )
+      }
 
       <button type="submit">Login</button>
    
